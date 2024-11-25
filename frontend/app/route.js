@@ -17,6 +17,10 @@ angular.module('reShoesApp', ['ngRoute'])
                 templateUrl: '/frontend/app/views/home.html',  // Perbarui path sesuai lokasi yang benar
                 controller: 'HomeController'
             })
+            .when('/contact', {
+                templateUrl: '/frontend/app/views/contact.html',
+                controller: 'ContactController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
