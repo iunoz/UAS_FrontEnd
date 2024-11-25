@@ -14,3 +14,4 @@ app.controller('ProductController', function($scope, $http) {
             console.error("Error loading products:", error);
         });
 });
+ 

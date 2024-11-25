@@ -2,9 +2,17 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const productRoutes = require('./frontend/app/routes/productRoutes');
+const cors = require('cors');
+const productRoutes = require('./backend/routes/productRoutes');
 
 const app = express();
+
+// CORS
+app.use(cors({
+  origin: 'http://localhost:3000', // Izinkan frontend Anda (port 3000)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Atur metode yang diizinkan
+  credentials: true // Jika ada kebutuhan untuk mengirim cookies/credensial
+}));
 
 // Middleware
 app.use(express.json());
