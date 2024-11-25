@@ -21,6 +21,14 @@ angular.module('reShoesApp', ['ngRoute'])
                 templateUrl: '/frontend/app/views/contact.html',
                 controller: 'ContactController'
             })
+            .when('/login', {
+                templateUrl: '/frontend/app/views/login.html',
+                controller: 'LoginController'
+            })
+            .when('/register', {
+                templateUrl: '/frontend/app/views/register.html',
+                controller: 'RegisterController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
