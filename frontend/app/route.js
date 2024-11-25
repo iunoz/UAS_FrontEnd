@@ -2,7 +2,7 @@ angular.module('reShoesApp', ['ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/frontend/app/views/home.html',  // Perbarui path sesuai lokasi yang benar
+                templateUrl: '/frontend/app/views/home.html',
                 controller: 'HomeController'
             })
             .when('/about', {
@@ -11,10 +11,10 @@ angular.module('reShoesApp', ['ngRoute'])
             })
             .when('/shop', {
                 templateUrl: '/frontend/app/views/shop.html',
-                controller: 'ShopController'
+                controller: '/frontend/app/controllers/displayProduct.js'
             })
             .when('/home', {
-                templateUrl: '/frontend/app/views/home.html',  // Perbarui path sesuai lokasi yang benar
+                templateUrl: '/frontend/app/views/home.html',
                 controller: 'HomeController'
             })
             .when('/contact', {

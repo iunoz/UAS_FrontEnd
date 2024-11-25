@@ -2,10 +2,9 @@
   "name": "uas_frontend_lagi",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/index.js",
-  "type": "module",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon app.js"
   },
   "author": "grego",
   "license": "ISC",
