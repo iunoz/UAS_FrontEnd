@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="UASApp">
+<head>
+    <base href="/frontend/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS Frontend</title>
+    <!-- Tambahkan link ke file CSS -->
+    <!-- Pustaka AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <!-- Aplikasi AngularJS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#!/">Home</a>
+            <a href="#!/login">Login</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Area untuk konten dinamis -->
+        <div ng-view></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 UAS Frontend Project</p>
+    </footer>
+</body>
+</html>
