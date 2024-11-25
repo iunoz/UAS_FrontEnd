@@ -1,29 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="UASApp">
+<html lang="en" ng-app="reShoesApp">
 <head>
-    <base href="/frontend/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAS Frontend</title>
-    <!-- Tambahkan link ke file CSS -->
-    <!-- Pustaka AngularJS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
-    <!-- Aplikasi AngularJS -->
+    <title>ReShoes</title>
+    <link rel="stylesheet" href="/frontend/css/about.css">
+    <link rel="stylesheet" href="/frontend/css/navbar.css">
+    <link rel="stylesheet" href="/frontend/components/navbar.css">
+    <link rel="stylesheet" href="/frontend/components/footer.css">
+    <link rel="stylesheet" href="/frontend/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="/app/app.js" defer></script>
+    <script src="/frontend/components/navbar.component.js" defer></script>
+    <script src="/frontend/components/footer.component.js" defer></script>
 </head>
 <body>
+    <!-- Navbar -->
+    <navbar></navbar> 
+
     <header>
-        <nav>
-            <a href="#!/">Home</a>
-            <a href="#!/login">Login</a>
-        </nav>
+        <div class="body">
+            <div class="deskripsi-produk">
+                <h4>
+                    <i class="fa-solid fa-money-bill"> $122.15</i>
+                </h4>
+                <h2>ReShoes Air Max 200 GO</h2>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i> 
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>The ReShoes Air Max 200 GOOOO combines comfort with style and <span>ECO FRIENDLY</span>. It's the perfect sneaker for any occasion and for making a world without waste.</p>
+            </div>
+            <div class="img">
+                <img src="assets/images/ReShoes-removebg-preview-double-removebg-preview.png" alt="recycleshoes">
+            </div>
+        </div>
     </header>
-    <main>
-        <!-- Area untuk konten dinamis -->
-        <div ng-view></div>
-    </main>
-    <footer>
-        <p>&copy; 2024 UAS Frontend Project</p>
-    </footer>
+    <h2 class="text-center mt-5 text-black">
+        <i class="fa-solid fa-fire"> Most Popular</i>
+    </h2>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="card">
+            <img src="assets/images/recycled-shoe1.avif" class="card-img-top" alt="Card Image 1">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">Description for card 1.</p>
+              <a href="#" class="btn btn-black">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="card">
+            <img src="assets/images/recycled-shoe2.avif" class="card-img-top" alt="Card Image 2">
+            <div class="card-body">
+              <h5 class="card-title">Card 2</h5>
+              <p class="card-text">Description for card 2.</p>
+              <a href="#" class="btn btn-black">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="card">
+            <img src="assets/images/recycled-shoe3.avif" class="card-img-top" alt="Card Image 3">
+            <div class="card-body">
+              <h5 class="card-title">Card 3</h5>
+              <p class="card-text">Description for card 3.</p>
+              <a href="#" class="btn btn-black">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+          <div class="card">
+            <img src="assets/images/recycled-shoe4.avif" class="card-img-top" alt="Card Image 4">
+            <div class="card-body">
+              <h5 class="card-title">Card 4</h5>
+              <p class="card-text">Description for card 4.</p>
+              <a href="#" class="btn btn-black">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Carousel -->
+    <h5 class="text-center mt-5 text-black">
+        <i class="fa-solid fa-wand-magic-sparkles"> What should you know about us</i>
+    </h5>
+    <div id="carouselExampleCaptions" class="carousel slide custom-carousel" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/frontend/assets/images/brand(2).png" class="d-block w-100" alt="First Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="text-black">Eco-friendly Materials</h5>
+                    <p class="text-black">Discover how ReShoes uses sustainable materials in every pair.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/frontend/assets/images/eco.png" class="d-block w-100" alt="Second Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="text-black">Innovative Design</h5>
+                    <p class="text-black">Style meets comfort with cutting-edge design.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/frontend/assets/images/lari.png" class="d-block w-100" alt="Third Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="text-black">Join the Movement</h5>
+                    <p class="text-black">Be part of a world that values sustainability.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/frontend/assets/images/bumi.png" class="d-block w-100" alt="Forth Slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3 class="text-black">Join the Movement</h5>
+                    <p class="text-black">Be part of a world that values sustainability.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
 </body>
 </html>

@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+body {
+    background-color: #f4f4f4;
+    background-image: url(../Assets/Images/contact-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* NAVBAR */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+}
+
+.name-logo {
+    font-size: 24px;
+    color: rgb(190, 109, 3);
+    font-weight: 600;
+}
+
+.name-logo span {
+    color: #4caf50;
+}
+
+.nav-link {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-link li {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    /* sembunyikan dropdown secara default */
+    position: absolute;
+    /* posisikan dropdown secara absolut */
+    background-color: white;
+    list-style: none;
+    padding: 10px 0;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown li {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.nav-link a:hover {
+    border-bottom: 2px solid rgb(190, 109, 3);
+    color: #4caf50;
+    font-weight: 600;
+}
+
+.nav-link li:hover .dropdown {
+    display: block;
+}
+
+li a.login-button {
+    border: 2px solid #4caf50;
+    padding: 10px 10px;
+    border-radius: 25px;
+    transition: border 0.3s ease;
+    text-decoration: none;
+}
+
+li a.login-button:hover {
+    border-color: rgb(205, 124, 17);
+    background-color: rgb(205, 124, 17);
+    color: #f4f4f4;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.small-menu {
+    display: none;
+}
+/* Contact */
+/*Contact Section */
+.cont-sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: goDown 2s ease-in-out forwards;
+}
+
+@keyframes goDown {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+        /* 100px dri bawah keatas */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* balik ke posisi awal */
+    }
+}
+
+/* Container */
+.container {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    gap: 80px;
+    border-radius: 20px;
+    background-color: #f3f1f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.left {
+    width: 55%;
+}
+
+.left h2 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.green {
+    color: #4caf50;
+}
+
+.brown {
+    color: rgb(190, 109, 3);
+}
+
+.left p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Form */
+form {
+    margin-top: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-box input, .input-box textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #dee7de;
+}
+
+.input-box textarea {
+    resize: none;
+    height: 150px;
+}
+
+.input-box input::placeholder, .input-box textarea::placeholder {
+    color: #333;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.input-box.success input, .input-box.success textarea {
+    border-color: #9eef70;
+}
+
+.input-box.error input, .input-box.error textarea {
+    border-color: #e77878;
+}
+
+.input-box .error {
+    color: #e77878;
+    font-size: 10px;
+    height: 10px;
+    font-weight: 600;
+    margin-bottom: -2px;
+}
+
+.btn {
+    width: 100%;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    color: #f4f4f4;
+    background-color: #4caf50;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background-color: rgb(190, 109, 3);
+}
+
+/* Right */
+.right {
+    width: 45%;
+}
+
+.illust {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.illust img {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 30px;
+    padding-bottom: 22px;
+}
+
+.info-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.icon a {
+    color: #4caf50;
+}
+
+.icon:hover {
+    color: #f4f4f4;
+    background-color: rgb(190, 109, 3);
+    border: none;
+}
+
+.icon a:hover {
+    color: #f4f4f4;
+}
+
+.text {
+    margin: 0;
+    font-size: 16px;
+}
+
+.text a {
+    color: #333;
+}
+
+@media screen and (max-width: 820px) {
+    body {
+        overflow: auto;
+    }
+    
+    .nav-link {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        padding-bottom: 30px;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: white;
+        display: none;    
+        gap: 30px;
+    }
+        
+    .nav-link.show { /*tampil jika diklik*/
+        display: flex;        
+    }
+    
+    .dropdown {
+        display: none !important;
+    }
+        
+    .small-menu {
+        display: block;
+    }
+    .nav-link .small-menu a {
+        font-size: 11px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link .small-menu a:hover {
+        color: rgb(190, 109, 3);
+        border-bottom: none;
+        font-weight: bolder;
+    }
+    
+    .menu-icon {
+        display: flex;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+    }
+    
+    .left, .right {
+        width: 100%;
+    }
+
+    .contact-info {
+        margin-top: 40px;
+    }
+}

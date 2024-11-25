@@ -1,0 +1,47 @@
+footer {
+    background-color: #f8f9fa; 
+    padding: 20px 0; 
+    text-align: center; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 10; 
+    margin-top: 50px;
+}
+
+.sosial {
+    margin-bottom: 10px; 
+}
+
+.sosial a {
+    margin: 0 10px; 
+    color: #333; 
+    font-size: 24px; 
+    transition: color 0.3s; 
+}
+
+.sosial a:hover {
+    color: rgb(190, 109, 3); 
+}
+
+.footer-links {
+    margin: 10px 0; 
+}
+
+.footer-links a {
+    margin: 0 15px; 
+    color: #666; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+.footer-links a:hover {
+    color: rgb(190, 109, 3); 
+}
+
+.copyright {
+    color: #888; 
+    font-size: 14px; 
+}
