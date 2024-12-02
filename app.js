@@ -10,7 +10,7 @@ const app = express();
 
 // CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Izinkan frontend Anda (port 3000)
+  origin: ['http://localhost:3000', 'http://127.0.0.1:5500'], // Izinkan frontend Anda (port 3000)
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Atur metode yang diizinkan
   credentials: true // Jika ada kebutuhan untuk mengirim cookies/credensial
 }));

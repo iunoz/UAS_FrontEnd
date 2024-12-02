@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="shopApp">
+<html lang="en" ng-app="reShoesApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="/frontend/app/controllers/displayProduct.js"></script>
-    <script src="/frontend/app/controllers/shop.js"></script>
+    <script src="/frontend/app/controllers/displayProductsFromJSON.js"></script>
+    <script src="/frontend/app/controllers/ProductController.js"></script>
 </head>
 <body>
 
@@ -22,15 +22,15 @@
 
     <section class="shop-container">
         <div class="product-item" ng-repeat="product in products">
-            <a href="{{product.productUrl}}">
-                <img ng-src="{{product.imageUrl}}" alt="{{product.title}}">
-                <h3>{{product.title}}</h3>
-                <span class="price">${{product.price}}</span>
-            </a>
+            <img ng-src="{{product.imageURL}}" alt="{{product.productName}}">
+            <h3>{{product.title}}</h3>
+            <span class="price">${{product.price}}</span>
         </div>
-
-        <div class="no-products" ng-show="products.length === 0">No products found</div>
+    
+        <!-- This is the missing .no-products element -->
+        <div class="no-products" style="display: none;">No products found</div>
     </section>
+    
 
 </section>
 

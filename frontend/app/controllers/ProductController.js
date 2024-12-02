@@ -1,5 +1,5 @@
 // Modul AngularJS
-var app = angular.module('shopApp', []);
+var app = angular.module('reShoesApp');
 
 app.controller('ProductController', function($scope, $http) {
     // Ambil data produk dari API
