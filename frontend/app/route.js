@@ -28,6 +28,6 @@ app.config(function($routeProvider) {
             controller: 'HomeController' // Reference to the home page's controller
         })
         .otherwise({
-            redirectTo: '/shop' // Default route if no match is found
+            redirectTo: '/frontend/app.views/home.html' // Default route if no match is found
         });
 });

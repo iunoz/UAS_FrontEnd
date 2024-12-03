@@ -1,25 +1,30 @@
 const express = require('express');
-const User = require('../models/User'); // Path ke model User
 const router = express.Router();
+const User = require('../models/User');
 
-// Register User
-router.post('/register', async (req, res) => {
+// Login User
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
     try {
-        const { username, email, password, confirmPassword } = req.body;
-
-        // Validasi confirmPassword
-        if (password !== confirmPassword) {
-            return res.status(400).json({ error: "Passwords do not match" });
+        // Cari user berdasarkan email
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found.' });
         }
 
-        // Buat user baru
-        const newUser = new User({ username, email, password });
-        await newUser.save();
+        // Verifikasi password
+        if (user.password !== password) {
+            return res.status(400).json({ message: 'Invalid password.' });
+        }
 
-        res.status(201).json({ message: "User registered successfully" });
+        // Jika login berhasil
+        res.status(200).json({ message: 'Login successful!', nickname: user.nickname });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        console.error(error);
+        res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 });
 
 module.exports = router;
+    
