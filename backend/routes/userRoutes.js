@@ -1,30 +1,32 @@
+// backend/routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const User = require('../models/User'); // Model pengguna
 
-// Login User
-router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+// Registrasi pengguna
+router.post('/register', async (req, res) => {
+    // Log data yang diterima dari frontend
+    console.log('Received data:', req.body);
+
+    const { nickname, email, password } = req.body;
 
     try {
-        // Cari user berdasarkan email
-        const user = await User.findOne({ email });
-        if (!user) {
-            return res.status(404).json({ message: 'User not found.' });
+        // Validasi apakah pengguna sudah ada
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Email already in use.' });
         }
 
-        // Verifikasi password
-        if (user.password !== password) {
-            return res.status(400).json({ message: 'Invalid password.' });
-        }
+        // Membuat pengguna baru
+        const user = new User({ nickname, email, password });
+        await user.save();
 
-        // Jika login berhasil
-        res.status(200).json({ message: 'Login successful!', nickname: user.nickname });
+        // Mengirim response berhasil
+        res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Server error. Please try again later.' });
+        res.status(500).json({ message: 'Something went wrong. Please try again later.' });
     }
 });
 
 module.exports = router;
-    

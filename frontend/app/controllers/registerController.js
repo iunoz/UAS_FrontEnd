@@ -1,6 +1,5 @@
-// register.js
 angular.module('reShoesApp')
-    .controller('RegisterController', function($scope, $location) {
+    .controller('RegisterController', function($scope, $http, $location) {
         $scope.user = {};  // Membuat objek untuk menyimpan data user
 
         // Fungsi untuk menangani pengiriman form
@@ -11,10 +10,24 @@ angular.module('reShoesApp')
                 return;
             }
 
-            // Simpan atau kirim data ke server (misalnya menggunakan $http)
-            console.log("User registered:", $scope.user);
+            // Log data untuk memeriksa apakah data sudah benar
+            console.log('Sending data to backend:', {
+                nickname: $scope.user.nickname,
+                email: $scope.user.email,
+                password: $scope.user.password
+            });
 
-            // Redirect ke halaman login setelah registrasi berhasil
-            $location.path('/login');
+            // Kirim data ke server menggunakan $http
+            $http.post('http://localhost:3000/api/users/register', {
+                nickname: $scope.user.nickname,
+                email: $scope.user.email,
+                password: $scope.user.password
+            }).then(function(response) {
+                alert("Registration successful!");
+                $location.path('/login'); // Redirect ke login
+            }).catch(function(error) {
+                console.error('Registration error:', error);
+                alert('Registration failed. Please try again.');
+            });
         };
     });
