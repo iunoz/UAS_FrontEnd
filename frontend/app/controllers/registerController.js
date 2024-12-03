@@ -1,33 +1,45 @@
 angular.module('reShoesApp')
-    .controller('RegisterController', function($scope, $http, $location) {
-        $scope.user = {};  // Membuat objek untuk menyimpan data user
+    .controller('RegisterController', function ($scope, $http) {
+        $scope.register = () => {
+            const nickname = $scope.nickname;
+            const email = $scope.email;
+            const password = $scope.password;
+            const confirmPassword = $scope.confirmPassword;
 
-        // Fungsi untuk menangani pengiriman form
-        $scope.register = function() {
-            // Periksa apakah password dan konfirmasi password cocok
-            if ($scope.user.password !== $scope.user.confirmPassword) {
-                alert("Passwords do not match!");
+            // Validasi input di frontend
+            if (!nickname || !email || !password || !confirmPassword) {
+                alert('All fields are required!');
                 return;
             }
 
-            // Log data untuk memeriksa apakah data sudah benar
-            console.log('Sending data to backend:', {
-                nickname: $scope.user.nickname,
-                email: $scope.user.email,
-                password: $scope.user.password
-            });
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                alert('Invalid email format!');
+                return;
+            }
 
-            // Kirim data ke server menggunakan $http
-            $http.post('http://localhost:3000/api/users/register', {
-                nickname: $scope.user.nickname,
-                email: $scope.user.email,
-                password: $scope.user.password
-            }).then(function(response) {
-                alert("Registration successful!");
-                $location.path('/login'); // Redirect ke login
-            }).catch(function(error) {
-                console.error('Registration error:', error);
-                alert('Registration failed. Please try again.');
-            });
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters!');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Kirim data ke backend
+            const userData = { nickname, email, password };
+            console.log('Sending data to backend:', userData);
+
+            $http.post('http://localhost:3000/api/users/register', userData)
+                .then(response => {
+                    alert(response.data.message);
+                    // Redirect ke halaman login setelah sukses
+                    window.location.href = '#/login';
+                })
+                .catch(err => {
+                    console.error('Registration error:', err);
+                    alert(err.data?.message || 'An error occurred. Please try again.');
+                });
         };
     });
