@@ -1,116 +1,15 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f4f4f4;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-/* NAVBAR */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-.name-logo {
-    font-size: 24px;
-    color: rgb(190, 109, 3);
-    font-weight: 600;
-}
-
-.name-logo span {
-    color: #4caf50;
-}
-
-.nav-link {
-    display: flex;
-    list-style: none;
-    gap: 50px;
-}
-
-.nav-link a {
-    text-decoration: none;
-    color: black;
-    padding: 5px 0;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.nav-link li {
-    position: relative;
-}
-
-.dropdown {
-    display: none;
-    /* sembunyikan dropdown secara default */
-    position: absolute;
-    /* posisikan dropdown secara absolut */
-    background-color: white;
-    list-style: none;
-    padding: 10px 0;
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.dropdown li {
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.nav-link a:hover {
-    border-bottom: 2px solid rgb(190, 109, 3);
-    color: #4caf50;
-    font-weight: 600;
-}
-
-.nav-link li:hover .dropdown {
-    display: block;
-}
-
-li a.login-button {
-    border: 2px solid #4caf50;
-    padding: 10px 10px;
-    border-radius: 25px;
-    transition: border 0.3s ease;
-    text-decoration: none;
-}
-
-li a.login-button:hover {
-    border-color: rgb(205, 124, 17);
-    background-color: rgb(205, 124, 17);
-    color: #f4f4f4;
-}
-
-.menu-icon {
-    display: none;
-}
-
-.small-menu {
-    display: none;
-}
-
 /* ABOUT */
 /* About Brand */
 .about-brand h1 {
-    background-image: url(../Assets/Images/garbage.jpg);
+    background-image: url(/frontend/assets/images/garbage.jpg);
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.546);
     background-blend-mode: darken;
     color: white;
-    height: 250px;
-    line-height: 250px; /* dibuat sama agar sejajar secara vertikal */
+    height: 300px;
+    line-height: 300px; /* dibuat sama agar sejajar secara vertikal */
     text-align: center;
+    font-weight: bolder;
 }
 
 /* Brand Story */
@@ -127,6 +26,7 @@ li a.login-button:hover {
     color: rgb(190, 109, 3);
     font-size: 28px;
     margin-bottom: 20px;
+    font-weight: bolder;
 }
 
 .brand-story-content {
@@ -184,6 +84,7 @@ li a.login-button:hover {
     text-align: center;
     margin-bottom: 10px;
     font-size: 26px;
+    font-weight: bold;
 }
 
 .mission h2 {
@@ -191,6 +92,7 @@ li a.login-button:hover {
     text-align: center;
     margin-bottom: 10px;
     font-size: 26px;
+    font-weight: bold;
 }
 
 /* Funfact */
@@ -201,6 +103,7 @@ li a.login-button:hover {
 .funfact h2 {
     margin: 10px 40px 9px 40px;
     font-size: 26px;
+    font-weight: bold;
 }
 
 .funfact-content {
@@ -257,14 +160,20 @@ li a.login-button:hover {
     background-color: rgba(0, 0, 0, 0.546);
     background-blend-mode: darken;
     color: white;
-    height: 250px;
-    line-height: 250px; /* dibuat sama agar sejajar secara vertikal */
+    height: 300px;
+    line-height: 300px; /* dibuat sama agar sejajar secara vertikal */
     text-align: center;
+    font-weight: bolder;
 }
 
 .meet-the-team {
     text-align: center;
     margin: 40px;
+}
+
+.meet-the-team h2 {
+    text-align: center;
+    font-weight: bolder;
 }
 
 .green {
@@ -275,86 +184,63 @@ li a.login-button:hover {
     color: rgb(190, 109, 3);
 }
 
-.profiles-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 80px;
-    margin: 40px;
-}
-
-.profile {
-    text-align: center;
-    flex: 1;
-}
-
-.profile img {
-    width: 200px;
-    border-radius: 80%;
-}
-
-.profile h3 {
+.card {
+    padding: 20px;
     margin: 10px;
-    line-height: 1;
-    min-height: 20px;
-    overflow: visible;
-    white-space: nowrap;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.profile p {
-    font-size: 14px;
-    text-align: justify;
+/* Mengatur ukuran gambar pada kartu */
+.card img {
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Footer */
-footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
+/* Latar belakang untuk kartu ganjil */
+.col:nth-child(odd) .card {
+    background-color: #f8fff8; /* Hijau */
+}
+
+.col:nth-child(odd) .card .card-body h5{
+    color: rgb(190, 109, 3); /* Hijau */
+}
+
+/* Latar belakang untuk kartu genap */
+.col:nth-child(even) .card{
+    background-color: #fbf7ee; /* Cokelat */
+}
+    
+/* Efek hover pada kartu */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efek hover pada gambar di dalam kartu */
+.card:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mengatur tata letak teks pada kartu */
+.card-body h5 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #4caf50; /* warna judul */
     text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    position: flex;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    width: 100%;
-    margin-top: 50px;
+}
+
+.card-body p {
+    font-size: 15px;
+    text-align: justify;
+    margin-top: 10px;
 }
 
 
-.sosial {
-    margin-bottom: 10px;
-}
-
-.sosial a {
-    margin: 0 10px;
-    color: #333;
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.sosial a:hover {
-    color: rgb(190, 109, 3);
-}
-
-.footer-links {
-    margin: 10px 0;
-}
-
-.footer-links a {
-    margin: 0 15px;
-    color: #666;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: rgb(190, 109, 3);
-}
-
-.copyright {
-    color: #888;
-    font-size: 14px;
-}
 
 @media  screen and (max-width: 1120px) {
     .funfact-content {

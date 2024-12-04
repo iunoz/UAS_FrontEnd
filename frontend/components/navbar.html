@@ -1,23 +1,18 @@
 <nav class="custom-navbar">
+    <div class="menu-icon" ng-click="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
     <p class="name-logo"><span>Re</span>Shoes</p>
-    <ul class="nav-link">
+    <ul class="nav-link" ng-class="{'open' : isMenuOpen}">
         <li><a href="#!/"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li class="shop-menu">
-            <a href="#!/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a>
-            <ul class="dropdown">
-                <li><a href="#!/shop-men">Men</a></li>
-                <li><a href="#!/shop-women">Women</a></li>
-                <li><a href="#!/shop-kids">Kids</a></li>
-            </ul>
-        </li>
-        <li class="small-menu"><a href="#!/shop-men"> Men</a></li>
-        <li class="small-menu"><a href="#!/shop-women"> Women</a></li>
-        <li class="small-menu"><a href="#!/shop-kids"> Kids</a></li>
+        <li><a href="#!/shop"><i class="fa-solid fa-cart-shopping"></i> Shop</a></li>
         <li><a href="#!/about"><i class="fa-solid fa-book"></i> About Us</a></li>
         <li><a href="#!/contact"><i class="fa-solid fa-phone"></i> Contact Us</a></li>
-        <li><a href="#!/login" class="login-button"><i class="fa-solid fa-user"></i> Login</a></li>
+        <li class="login-item-mobile">
+            <a href="#!/login" class="login-button"><i class="fa-solid fa-user"></i> Login</a>
+        </li>
     </ul>
-    <div class="menu-icon">
-        <i class="fa-solid fa-bars"></i>
+    <div class="login-item-desktop">
+        <a href="#!/login" class="login-button"><i class="fa-solid fa-user"></i> Login</a>
     </div>
 </nav>

@@ -3,6 +3,10 @@ var app = angular.module('reShoesApp', ['ngRoute']); // Main module with 'ngRout
 // Configure routes
 app.config(function($routeProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: '/frontend/app/views/home.html',
+            controller: 'HomeController'
+        })
         .when('/shop', {
             templateUrl: '/frontend/app/views/shop.html', // Path to your shop page
             controller: 'ProductController' // Reference to the shop's controller
@@ -28,6 +32,6 @@ app.config(function($routeProvider) {
             controller: 'HomeController' // Reference to the home page's controller
         })
         .otherwise({
-            redirectTo: '/shop' // Default route if no match is found
+            redirectTo: '/' // Default route if no match is found
         });
 });

@@ -1,4 +1,4 @@
-.custom-navbar nav {
+.custom-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,36 +10,68 @@
     z-index: 10;
 }
 
+/* Logo */
 .custom-navbar .name-logo {
     font-size: 24px;
     color: rgb(190, 109, 3);
     font-weight: 600;
+    margin-right: auto;
 }
 
 .custom-navbar .name-logo span {
     color: #4caf50;
 }
 
-/* Tambahkan namespace di semua selektor lainnya */
 .custom-navbar .nav-link {
     display: flex;
     list-style: none;
-    gap: 50px;
+    gap: 30px;
+    margin: 0 auto;
+    justify-content: center;
+    transition: none;
 }
 
 .custom-navbar .nav-link a {
     text-decoration: none;
     color: black;
-    padding: 5px 0;
     font-size: 14px;
     font-weight: 600;
+    padding-bottom: 8px;
 }
 
-.custom-navbar .nav-link li {
-    position: relative;
+.custom-navbar .login-item-desktop {
+    margin-left: auto; /* Buat login button di kanan */
+    display: block;
 }
 
-/* dan seterusnya untuk semua elemen dalam navbar */
+.custom-navbar .login-item-mobile {
+    display: none;
+}
+
+.custom-navbar .login-button {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.custom-navbar .login-button:hover {
+    color: white;
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+/* Hover effects for desktop */
+.custom-navbar .nav-link a:hover {
+    border-bottom: 2px solid rgb(190, 109, 3);
+    color: #4caf50 !important;
+}
+
+/* Reset styles */
 .custom-navbar ul,
 .custom-navbar li,
 .custom-navbar a {
@@ -49,11 +81,84 @@
     text-decoration: none;
 }
 
-.custom-navbar .dropdown {
-    display: none !important; /* Gunakan !important untuk memprioritaskan gaya Anda */
+.custom-navbar .menu-icon {
+    display: none;
 }
 
-.custom-navbar .nav-link a:hover {
-    border-bottom: 2px solid rgb(190, 109, 3);
-    color: #4caf50 !important;
+/* Responsive styles for tablet (max-width: 768px) */
+@media (max-width: 850px) {
+    .custom-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .custom-navbar .nav-link {
+        flex-direction: column;
+        gap: 20px;
+        display: none; /* Default: hidden */
+        width: 100%;
+        background-color: white;
+        padding: 10px 0;
+        transition: none;
+    }
+
+    .custom-navbar .nav-link.open {
+        display: flex; /* Tampilkan saat class 'open' aktif */
+    }
+
+    .custom-navbar .nav-link li {
+        text-align: left;
+        padding: 10px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .custom-navbar .nav-link a {
+        font-size: 16px;
+        padding: 5px 0;
+    }
+
+    .custom-navbar .menu-icon {
+        position: absolute;
+        right: 20px;
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .custom-navbar .login-item-desktop {
+        display: none;
+    }
+
+    .custom-navbar .login-item-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #f0f0f0;  
+        box-sizing: border-box;
+    }
+
+    .custom-navbar .login-item-mobile a {
+        display: inline-block;
+        text-align: center;
+        width: auto;
+        color: black;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 5px 10px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+
+    .custom-navbar .login-item-mobile a:hover {
+        color: white !important;
+        background-color: #4caf50;
+        border-color: #4caf50;
+    }
 }
+
+
