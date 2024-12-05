@@ -13,7 +13,7 @@
   // Middleware untuk CORS
   app.use(bodyParser.json());
   app.use(cors({
-    origin: ['http://localhost:3000', 'http://127.0.0.1:5500'], // Sesuaikan dengan URL frontend
+    origin: ['http://localhost:3000', 'http://127.0.0.1:5500', 'http://127.0.0.1:5501'], // Sesuaikan dengan URL frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   }));
