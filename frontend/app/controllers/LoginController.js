@@ -1,10 +1,10 @@
-console.log('LoginController loaded');
-var app = angular.module('reShoesApp'); // Tambahkan array jika modul baru
-app.controller('LoginController', function ($scope, $http) {
+var app = angular.module('reShoesApp');
+
+app.controller('LoginController', function ($scope, $http, $window) {
     $scope.user = {}; // Menyimpan data login
+    $scope.isLoggedIn = !!localStorage.getItem('token'); // Cek apakah token ada di localStorage
 
     $scope.login = function () {
-        console.log("Login function called"); // Debugging log
         const requestData = {
             email: $scope.user.email,
             password: $scope.user.password,
@@ -12,13 +12,32 @@ app.controller('LoginController', function ($scope, $http) {
 
         $http.post('http://localhost:3000/api/userRoutes/login', requestData)
             .then(function (response) {
-                console.log("Login successful:", response.data); // Log respons sukses
-                alert("Login successful! Welcome, " + response.data.user.username);
-                window.location.href = '#!/home'; // Redirect ke halaman home
+                // Simpan token JWT di localStorage
+                localStorage.setItem('token', response.data.token);
+
+                // Perbarui status login
+                $scope.isLoggedIn = true;
+
+                // Redirect ke halaman utama setelah login berhasil
+                alert("Login successful! Redirecting to the home page...");
+                $window.location.href = '#!/home'; // Ke halaman utama
+                $window.location.reload();
+                
             })
             .catch(function (error) {
-                console.error("Login failed:", error); // Log respons error
                 alert("Login failed: " + (error.data?.error || "Unknown error"));
             });
+    };
+
+    $scope.logout = function () {
+        // Hapus token dari localStorage
+        localStorage.removeItem('token');
+
+        // Perbarui status login
+        $scope.isLoggedIn = false;
+
+        // Redirect ke halaman login
+        alert("Logged out successfully!");
+        $window.location.href = '#!/login';
     };
 });

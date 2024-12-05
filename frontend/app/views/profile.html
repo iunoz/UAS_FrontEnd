@@ -1,0 +1,42 @@
+<div class="container profile-container py-5">
+    <h1 class="text-center mb-5">Welcome, <strong>{{ username }}</strong>!</h1>
+
+    <!-- Update Username -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">Update Username</div>
+        <div class="card-body">
+            <form ng-submit="updateUsername()">
+                <div class="form-group mb-3">
+                    <label for="newUsername" class="form-label">New Username</label>
+                    <input type="text" id="newUsername" ng-model="newUsername" class="form-control" placeholder="Enter new username">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Update Username</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Password -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-warning text-white">Update Password</div>
+        <div class="card-body">
+            <form ng-submit="updatePassword()">
+                <div class="form-group mb-3">
+                    <label for="newPassword" class="form-label">New Password</label>
+                    <input type="password" id="newPassword" ng-model="newPassword" class="form-control" placeholder="Enter new password">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Account -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-danger text-white">Account Management</div>
+        <div class="card-body">
+            <button ng-click="deleteAccount()" class="btn btn-danger w-100">Delete Account</button>
+        </div>
+    </div>
+
+    <!-- Logout -->
+    <button ng-click="logout()" class="btn btn-secondary w-100">Logout</button>
+</div>

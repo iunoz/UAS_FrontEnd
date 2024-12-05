@@ -1,12 +1,43 @@
 angular.module('reShoesApp').component('navbar', {
-    templateUrl: '/frontend/components/navbar.html', // Pastikan path ini benar
-    controller: function($scope) {
-        $scope.isMenuOpen = false; // Awalnya menu tertutup
+    templateUrl: '/frontend/components/navbar.html',
+    controller: function($scope, $window, $http) {
+        // Periksa apakah pengguna sudah login
+        $scope.isLoggedIn = false; // Default belum login
 
-        $scope.toggleMenu = function() {
-            $scope.isMenuOpen = !$scope.isMenuOpen; // Toggle menu saat hamburger di klik
+        // Validasi token di localStorage
+        $scope.validateToken = function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                $http.post('http://localhost:3000/api/userRoutes/auth/check', {}, {
+                    headers: { Authorization: token },
+                }).then(() => {
+                    $scope.isLoggedIn = true; // Token valid
+                }).catch(() => {
+                    $scope.isLoggedIn = false; // Token invalid
+                    localStorage.removeItem('token'); // Hapus token invalid
+                });
+            }
         };
 
-        console.log('Navbar component loaded');
-    }
+        // Tombol login button logic
+        $scope.getLoginButtonLink = function() {
+            return $scope.isLoggedIn ? '#!/profile' : '#!/login';
+        };
+
+        // Logout: Hapus token dan redirect ke login
+        $scope.logout = function() {
+            localStorage.removeItem('token');
+            $scope.isLoggedIn = false;
+            $window.location.href = '#!/login';
+        };
+
+        // Panggil validasi token saat navbar dimuat
+        $scope.validateToken();
+
+        // Toggle menu untuk mobile view
+        $scope.isMenuOpen = false;
+        $scope.toggleMenu = function() {
+            $scope.isMenuOpen = !$scope.isMenuOpen;
+        };
+    },
 });

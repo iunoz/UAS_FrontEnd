@@ -5,7 +5,6 @@ app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: '/frontend/app/views/home.html',
-            controller: 'HomeController'
         })
         .when('/shop', {
             templateUrl: '/frontend/app/views/shop.html', // Path to your shop page
@@ -38,6 +37,10 @@ app.config(function($routeProvider) {
         .when('/admin', {
             templateUrl: '/frontend/app/views/admin.html', // Path to your home page
             controller: 'AdminController' // If you want to use a controller for home page
+        })
+        .when('/profile', {
+            templateUrl: '/frontend/app/views/profile.html', // Path to your home page
+            controller: 'ProfileController' // If you want to use a controller for home page
         })
         .otherwise({
             redirectTo: '/home' // Default route to home (no need to provide full path)
