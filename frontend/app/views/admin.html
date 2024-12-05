@@ -1,0 +1,96 @@
+<head>
+    <!-- Add Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/frontend/app/controllers/AdminController.js"></script>
+    <script src="/frontend/app/services/ProductService.js"></script>
+</head>
+<body ng-controller="AdminController">
+    <div class="form-cont mt-4">
+        <h1 class="justify-content-center">Welcome, Admin!</h1>
+        <div class="form-container m-5">
+            <h3>Add New Product</h3>
+            <form ng-submit="addProduct()">
+                <div class="form-group">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" ng-model="newProduct.productName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" ng-model="newProduct.category" class="form-control" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="essentials">Essentials</option>
+                        <option value="premium">Premium</option>
+                        <option value="luxury">Luxury</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" ng-model="newProduct.price" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageURL">Image URL:</label>
+                    <input type="text" id="imageURL" ng-model="newProduct.imageURL" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add Product</button>
+            </form>
+        </div>
+
+        <!-- Edit Product Form -->
+        <div class="form-container m-5" ng-if="editingProduct">
+            <h3>Edit Product</h3>
+            <form ng-submit="updateProduct()">
+                <div class="form-group">
+                    <label for="productNameEdit">Product Name:</label>
+                    <input type="text" id="productNameEdit" ng-model="editingProduct.productName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryEdit">Category:</label>
+                    <select id="categoryEdit" ng-model="editingProduct.category" class="form-control" required>
+                        <option value="essentials">Essentials</option>
+                        <option value="premium">Premium</option>
+                        <option value="luxury">Luxury</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="priceEdit">Price:</label>
+                    <input type="number" id="priceEdit" ng-model="editingProduct.price" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Product</button>
+            </form>
+        </div>
+
+        <!-- Product List Table -->
+        <h3 class="m-5">Product List</h3>
+        <table class="table table-bordered mx-auto">
+            <thead>
+                <tr>
+                    <th>Product Picture</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Time Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products">
+                    <td><img ng-src="{{ product.imageURL }}" alt="{{ product.productName }}" style="width: 100px;"></td>
+                    <td>{{ product.productName }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.createdAt | date: 'medium' }}</td>
+                    <td class="actions">
+                        <button ng-click="editProduct(product)" class="btn btn-warning btn-sm">Edit</button>
+                        <button ng-click="deleteProduct(product._id, $index)" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
