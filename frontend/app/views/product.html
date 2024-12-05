@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<script src="/frontend/app/controllers/ProductPageController.js"></script>
+<html lang="en" ng-app="reShoesApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.productName }}</title>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/frontend/app/controllers/ProductPageController.js"></script>
+</head>
+
+<body>
+    <section ng-controller="ProductPageController">
+        <div class="product-container" ng-if="product">
+            <h1 class="product-title">{{ product.productName }}</h1>
+            <img class="product-image" ng-src="{{ product.imageURL }}" alt="{{ product.productName }}">
+            <p class="product-price">${{ product.price }}</p>
+            <p class="product-description">{{ product.description || 'No description available.' }}</p>
+        </div>
+
+        <!-- Fallback in case product is not found or still loading -->
+        <div ng-if="!product" class="loading-message">
+            <p>Mencari data produk...</p>
+        </div>
+    </section>
+</body>
+</html>

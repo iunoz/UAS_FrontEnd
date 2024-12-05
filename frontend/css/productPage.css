@@ -1,0 +1,78 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+}
+
+/* Product Section Styles */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+/* Product Card Styles */
+.product-container {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image Styles */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Product Details Styles */
+.product-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px;
+    text-align: center;
+}
+
+.product-price {
+    font-size: 1rem;
+    color: #007BFF;
+    font-weight: bold;
+    margin: 0 10px 10px;
+    text-align: center;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 10px 10px;
+    text-align: center;
+}
+
+/* Fallback Loading Styles */
+.loading-message {
+    font-size: 1rem;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}

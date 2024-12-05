@@ -26,9 +26,11 @@ window.displayProductsFromJSON = function(products) {
             productDiv.dataset.price = product.price;
 
             productDiv.innerHTML = `
-                <img src="${product.imageURL}" alt="${product.productName}">
-                <h3>${product.productName}</h3>
-                <span class="price">$${product.price}</span>
+                <a href="#!/product/${product._id}">
+                    <img src="${product.imageURL}" alt="${product.productName}">
+                    <h3>${product.productName}</h3>
+                    <span class="price">$${product.price}</span>
+                </a>
             `;
 
             // Add product element to the container
