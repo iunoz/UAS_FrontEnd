@@ -11,6 +11,10 @@ app.config(function($routeProvider) {
             templateUrl: '/frontend/app/views/shop.html', // Path to your shop page
             controller: 'ProductController' // Reference to the shop's controller
         })
+        .when('/product/:id', {
+            templateUrl: '/frontend/app/views/product.html', // Path to your product page
+            controller: 'ProductPageController' // Reference to the product page's controller
+        })
         .when('/about', {
             templateUrl: '/frontend/app/views/about.html', // Path to your about page
             controller: 'AboutController' // Reference to the about page's controller
@@ -29,9 +33,9 @@ app.config(function($routeProvider) {
         })
         .when('/home', {
             templateUrl: '/frontend/app/views/home.html', // Path to your home page
-            controller: 'HomeController' // Reference to the home page's controller
+            controller: 'HomeController' // If you want to use a controller for home page
         })
         .otherwise({
-            redirectTo: '/' // Default route if no match is found
+            redirectTo: '/home' // Default route to home (no need to provide full path)
         });
 });

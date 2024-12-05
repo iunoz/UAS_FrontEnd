@@ -1,3 +1,4 @@
+<script src="/frontend/app/controllers/RegisterController.js"></script>
 <body id="regis" class="d-flex align-items-center justify-content-center vh-100 bg-light" ng-app="reShoesApp" ng-controller="RegisterController">
     <div class="container-fluid p-4">
         <div class="row shadow-lg rounded bg-white overflow-hidden mx-auto" style="max-width: 900px;">
@@ -5,10 +6,10 @@
             <div class="col-md-7 p-5">
                 <h3 class="text-center text-brown mb-4">Sign Up</h3>
                 <form ng-submit="register()">
-                    <!-- Nickname -->
+                    <!-- Username -->
                     <div class="mb-3">
-                        <label for="nickname" class="form-label">Nickname</label>
-                        <input type="text" class="form-control" id="nickname" name="nickname" ng-model="user.nickname" placeholder="Enter your nickname" required>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" ng-model="user.username" placeholder="Enter your username" required>
                     </div>
                     <!-- Email -->
                     <div class="mb-3">
@@ -39,7 +40,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Tambahkan Script -->
-    <script src="frontend/app/controllers/registerController.js"></script>
 </body>
