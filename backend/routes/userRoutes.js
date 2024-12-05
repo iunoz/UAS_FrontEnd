@@ -34,4 +34,40 @@ router.get('/users', async (req, res) => {
 });
 
 
-module.exports = router;
+// Endpoint untuk login
+router.post('/login', async (req, res) => {
+    console.log("Login endpoint hit with data:", req.body);
+
+    try {
+        const { email, password } = req.body;
+
+        // Cari pengguna berdasarkan email
+        const user = await User.findOne({ email });
+        if (!user) {
+            console.log("User not found");
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Periksa password
+        if (user.password !== password) {
+            console.log("Invalid credentials");
+            return res.status(400).json({ error: 'Invalid credentials' });
+        }
+
+        console.log("Login successful");
+        res.status(200).json({
+            message: 'Login successful',
+            user: {
+                username: user.username,
+                nickname: user.nickname,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).json({ error: 'Server error' });
+    }
+});
+
+  
+  module.exports = router;

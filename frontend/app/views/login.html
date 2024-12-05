@@ -11,21 +11,21 @@
             <!-- Right Section -->
             <div class="col-md-6 p-5">
                 <h3 class="text-success fw-bold text-center mb-4">Login</h3>
-                <form ng-submit="login()">
+                <form ng-submit="login()" autocomplete="off">
                     <!-- Nickname -->
                     <div class="mb-3">
                         <label for="nickname" class="form-label fw-bold">Nickname</label>
-                        <input type="text" id="nickname" name="nickname" class="form-control" placeholder="Enter your nickname">
+                        <input type="text" id="nickname" name="nickname" class="form-control" placeholder="Enter your nickname" ng-model="user.nickname" required>
                     </div>
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label fw-bold">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" ng-model="user.email" required>
                     </div>
                     <!-- Password -->
                     <div class="mb-4">
                         <label for="password" class="form-label fw-bold">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" ng-model="user.password" required>
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-success w-100 py-2 mb-3">Login</button>
@@ -35,5 +35,5 @@
             </div>
         </div>
     </div>
-    <script src="/frontend/app/controllers/login.js"></script>
+<script src="/frontend/app/controllers/LoginController.js"></script>
 </body>
