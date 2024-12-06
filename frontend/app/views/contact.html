@@ -1,28 +1,28 @@
 <div class="cont-sec">
-    <div class="container">
+    <div class="container-contact">
         <div class="left">
             <h2><span class="green">Contact</span> <span class="brown">Us</span>!!!</h2>
             <p>Just tell us if you need something :D</p>
-            <form action="#">
+            <form ng-submit="submitForm(contactForm)" name="contactForm" novalidate>
                 <div class="input-box">
-                    <input type="text" name="name" class="name" placeholder="Enter your name!" />
-                    <div class="error"></div>
+                    <input type="text" name="name" ng-model="formData.name" placeholder="Enter your name!" required/>
+                    <div class="error" ng-show="contactForm.name.$invalid && contactForm.name.$touched">Name is required</div>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="email" class="email" placeholder="Enter your email!" />
-                    <div class="error"></div>
+                    <input type="email" name="email" ng-model="formData.email" placeholder="Enter your email!" required/>
+                    <div class="error"ng-show="contactForm.email.$invalid && contactForm.email.$touched">Valid email is required.</div>
                 </div>
                 <div class="input-box">
-                    <textarea name="message" class="message" placeholder="Enter your problem / message"></textarea>
-                    <div class="error"></div>
+                    <textarea name="message" ng-model="formData.message" placeholder="Enter your problem / message" required minlength="50"></textarea>
+                    <div class="error" ng-show="contactForm.message.$invalid && contactForm.message.$touched">Message must be at least 50 characters.</div>
                 </div>
-                <button class="btn">SUBMIT</button>
+                <button type="submit" class="btn" ng-disabled="contactForm.$invalid">SUBMIT</button>
             </form>
         </div>
 
         <div class="right">
             <div class="illust">
-                <img src="../Assets/Images/people-recycling.png" alt="logo">
+                <img src="/frontend/assets/images/people-recycling.png" alt="logo">
             </div>
             <div class="contact-info">
                 <div class="info-content">

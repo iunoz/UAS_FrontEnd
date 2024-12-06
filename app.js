@@ -7,6 +7,7 @@
 
   const productRoutes = require('./backend/routes/productRoutes');
   const userRoutes = require('./backend/routes/userRoutes');
+  const contactRoutes = require("./backend/routes/contactRoutes");
 
   const app = express();
 
@@ -50,6 +51,7 @@
   // Rute produk dan pengguna
   app.use('/api/products', productRoutes);
   app.use('/api/userRoutes', userRoutes);
+  app.use('/api/contact-support', contactRoutes);
 
   // Koneksi ke MongoDB
   mongoose.connect(process.env.MONGO_URI, {
