@@ -1,0 +1,22 @@
+/* Styling khusus untuk carousel Most Popular */
+#circleCarousel .carousel-inner img {
+    width: 150px; /* Ukuran lingkaran */
+    height: 150px; /* Ukuran lingkaran */
+    object-fit: cover;
+    border-radius: 50%; /* Membuat lingkaran */
+    border: 2px solid #000; /* Opsional: Border lingkaran */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    margin: auto; /* Pusatkan gambar */
+}
+
+/* Styling navigasi untuk tombol prev/next hanya di #circleCarousel */
+#circleCarousel .carousel-control-prev-icon,
+#circleCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Warna tombol navigasi */
+    border-radius: 50%; /* Membulatkan tombol */
+}
+
+/* Atur teks agar berada di tengah */
+#circleCarousel .carousel-item {
+    text-align: center;
+}
